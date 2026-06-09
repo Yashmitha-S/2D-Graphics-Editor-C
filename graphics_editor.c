@@ -79,6 +79,13 @@ void deleteArea(int x, int y, int width, int height) {
         }
     }
 }
+void modifyRectangle(int oldX, int oldY, int oldWidth, int oldHeight,
+                     int newX, int newY, int newWidth, int newHeight) {
+
+    deleteArea(oldX, oldY, oldWidth, oldHeight);
+
+    drawRectangle(newX, newY, newWidth, newHeight);
+}
 int main() {
     int choice;
 
@@ -91,8 +98,9 @@ int main() {
         printf("3. Draw Triangle\n");
         printf("4. Draw Circle\n");
         printf("5. Delete area\n");
-        printf("6. Display Canvas\n");
-        printf("7. Exit\n");
+        printf("6. Modify Rectangle\n");
+        printf("7. Display Canvas\n");
+        printf("8. Exit\n");
         printf("Enter choice: ");
 
         scanf("%d", &choice);
@@ -194,12 +202,35 @@ int main() {
                 printf("Area deleted.\n");
                 break;
             }
-
             case 6:
+            {
+                int oldX, oldY, oldWidth, oldHeight;
+                int newX, newY, newWidth, newHeight;
+
+                printf("Enter old x y width height: ");
+                scanf("%d %d %d %d",
+                    &oldX, &oldY,
+                    &oldWidth, &oldHeight);
+
+                printf("Enter new x y width height: ");
+                scanf("%d %d %d %d",
+                    &newX, &newY,
+                    &newWidth, &newHeight);
+
+                modifyRectangle(
+                    oldX, oldY, oldWidth, oldHeight,
+                    newX, newY, newWidth, newHeight
+                );
+
+                printf("Rectangle modified.\n");
+                break;
+            }
+
+            case 7:
                 displayCanvas();
                 break;
 
-            case 7:
+            case 8:
                 printf("Exiting...\n");
                 return 0;
 
