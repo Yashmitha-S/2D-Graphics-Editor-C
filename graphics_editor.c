@@ -72,6 +72,13 @@ void drawCircle(int cx, int cy, int radius) {
         }
     }
 }
+void deleteArea(int x, int y, int width, int height) {
+    for(int i = y; i < y + height && i < HEIGHT; i++) {
+        for(int j = x; j < x + width && j < WIDTH; j++) {
+            canvas[i][j] = '_';
+        }
+    }
+}
 int main() {
     int choice;
 
@@ -83,8 +90,9 @@ int main() {
         printf("2. Draw Line\n");
         printf("3. Draw Triangle\n");
         printf("4. Draw Circle\n");
-        printf("5. Display Canvas\n");
-        printf("6. Exit\n");
+        printf("5. Delete area\n");
+        printf("6. Display Canvas\n");
+        printf("7. Exit\n");
         printf("Enter choice: ");
 
         scanf("%d", &choice);
@@ -165,12 +173,33 @@ int main() {
                 printf("Circle added.\n");
                 break;
             }
-
             case 5:
+            {
+                int x, y, width, height;
+
+                printf("Enter x coordinate: ");
+                scanf("%d", &x);
+
+                printf("Enter y coordinate: ");
+                scanf("%d", &y);
+
+                printf("Enter width: ");
+                scanf("%d", &width);
+
+                printf("Enter height: ");
+                scanf("%d", &height);
+
+                deleteArea(x, y, width, height);
+
+                printf("Area deleted.\n");
+                break;
+            }
+
+            case 6:
                 displayCanvas();
                 break;
 
-            case 6:
+            case 7:
                 printf("Exiting...\n");
                 return 0;
 
