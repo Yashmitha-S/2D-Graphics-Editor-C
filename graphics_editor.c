@@ -21,9 +21,19 @@ void displayCanvas() {
         printf("\n");
     }
 }
-
+void drawRectangle(int x, int y, int width, int height) {
+    for(int i = y; i < y + height && i < HEIGHT; i++) {
+        for(int j = x; j < x + width && j < WIDTH; j++) {
+            canvas[i][j] = '*';
+        }
+    }
+}
 int main() {
     clearCanvas();
+
+    drawRectangle(5, 3, 10, 4);
+
     displayCanvas();
+
     return 0;
 }
