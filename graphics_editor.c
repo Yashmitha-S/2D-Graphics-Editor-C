@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 #define WIDTH 40
 #define HEIGHT 15
@@ -47,6 +48,30 @@ void drawLine(int x1, int y1, int x2, int y2) {
         printf("Only horizontal and vertical lines supported currently.\n");
     }
 }
+void drawTriangle(int x, int y, int height) {
+    for(int i = 0; i < height; i++) {
+        for(int j = 0; j <= i; j++) {
+            if(y + i < HEIGHT && x + j < WIDTH) {
+                canvas[y + i][x + j] = '*';
+            }
+        }
+    }
+}
+void drawCircle(int cx, int cy, int radius) {
+    for(int y = 0; y < HEIGHT; y++) {
+        for(int x = 0; x < WIDTH; x++) {
+
+            int dx = x - cx;
+            int dy = y - cy;
+
+            int distance = dx * dx + dy * dy;
+
+            if(distance <= radius * radius) {
+                canvas[y][x] = '*';
+            }
+        }
+    }
+}
 int main() {
     int choice;
 
@@ -56,12 +81,16 @@ int main() {
         printf("\n--- 2D Graphics Editor ---\n");
         printf("1. Draw Rectangle\n");
         printf("2. Draw Line\n");
-        printf("3. Display Canvas\n");
-        printf("4. Exit\n");
+        printf("3. Draw Triangle\n");
+        printf("4. Draw Circle\n");
+        printf("5. Display Canvas\n");
+        printf("6. Exit\n");
         printf("Enter choice: ");
+
         scanf("%d", &choice);
 
         switch(choice) {
+
             case 1:
             {
                 int x, y, width, height;
@@ -83,6 +112,7 @@ int main() {
                 printf("Rectangle added.\n");
                 break;
             }
+
             case 2:
             {
                 int x1, y1, x2, y2;
@@ -98,11 +128,50 @@ int main() {
                 printf("Line added.\n");
                 break;
             }
+
             case 3:
+            {
+                int x, y, height;
+
+                printf("Enter x coordinate: ");
+                scanf("%d", &x);
+
+                printf("Enter y coordinate: ");
+                scanf("%d", &y);
+
+                printf("Enter triangle height: ");
+                scanf("%d", &height);
+
+                drawTriangle(x, y, height);
+
+                printf("Triangle added.\n");
+                break;
+            }
+            case 4:
+            {
+                int cx, cy, radius;
+
+                printf("Enter center x: ");
+                scanf("%d", &cx);
+
+                printf("Enter center y: ");
+                scanf("%d", &cy);
+
+                printf("Enter radius: ");
+                scanf("%d", &radius);
+
+                drawCircle(cx, cy, radius);
+
+                printf("Circle added.\n");
+                break;
+            }
+
+            case 5:
                 displayCanvas();
                 break;
 
-            case 4:
+            case 6:
+                printf("Exiting...\n");
                 return 0;
 
             default:
