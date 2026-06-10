@@ -1,0 +1,75 @@
+Mini Project: 2D Graphics Editor in C
+
+Generative AI Tool Used: ChatGPT
+
+Prompt 1:
+Create a basic C program that uses a 2D character array as a canvas and displays it on the screen.
+
+Response:
+Provided code to create a 2D array canvas, initialize it with '_' characters, and display it using nested loops.
+
+---
+
+Prompt 2:
+How can I add a rectangle drawing function to my 2D graphics editor in C?
+
+Response:
+Provided a drawRectangle() function that fills a rectangular region of the canvas with '*' characters.
+
+---
+
+Prompt 3:
+How can I add a menu-driven interface to my graphics editor?
+
+Response:
+Provided a while loop with menu options and a switch-case structure to allow user interaction.
+
+---
+
+Prompt 4:
+How can I implement line drawing in my graphics editor?
+
+Response:
+Provided a drawLine() function supporting horizontal and vertical lines.
+
+---
+
+Prompt 5:
+How can I add triangle drawing functionality?
+
+Response:
+Provided a drawTriangle() function that draws a right-angled triangle using '*' characters.
+
+---
+
+Prompt 6:
+How can I add circle drawing functionality?
+
+Response:
+Provided a drawCircle() function using the circle equation to mark points within a radius.
+
+---
+
+Prompt 7:
+How can I delete objects from the canvas?
+
+Response:
+Provided a deleteArea() function that replaces '*' characters with '_' characters in a selected region.
+
+---
+
+Prompt 8:
+How can I modify objects in the graphics editor?
+
+Response:
+Suggested implementing modifyRectangle() by deleting the old rectangle and redrawing it with new dimensions.
+
+---
+
+Prompt 9:
+How do I compile, run, and push my project to GitHub using a Mac terminal?
+
+Response:
+Provided step-by-step instructions for compiling with gcc, running the executable, creating commits, and pushing changes to GitHub.
+
+End of prompt history.
